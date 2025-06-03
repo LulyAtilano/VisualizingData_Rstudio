@@ -81,7 +81,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#mi-1er-proyecto-en-github-desde-rstudio" id="toc-mi-1er-proyecto-en-github-desde-rstudio" class="nav-link active" data-scroll-target="#mi-1er-proyecto-en-github-desde-rstudio">Mi 1er proyecto en Github desde RStudio</a></li>
-  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">Running Code</a></li>
+  <li><a href="#running-code" id="toc-running-code" class="nav-link" data-scroll-target="#running-code">Running Code</a>
+  <ul class="collapse">
+  <li><a href="#created-the-plot-in-ggplot2" id="toc-created-the-plot-in-ggplot2" class="nav-link" data-scroll-target="#created-the-plot-in-ggplot2">Created the plot in ggplot2</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -114,27 +117,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="mi-1er-proyecto-en-github-desde-rstudio" class="level2">
 <h2 class="anchored" data-anchor-id="mi-1er-proyecto-en-github-desde-rstudio">Mi 1er proyecto en Github desde RStudio</h2>
-<p>Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <a href="https://quarto.org" class="uri">https://quarto.org</a>.</p>
 </section>
 <section id="running-code" class="level2">
 <h2 class="anchored" data-anchor-id="running-code">Running Code</h2>
 <p>When you click the <strong>Render</strong> button a document will be generated that includes both content and the output of embedded code. You can embed code like this:</p>
+<p>Firts steps installing packages in RStudio</p>
+<section id="install-the-packages" class="level4">
+<h4 class="anchored" data-anchor-id="install-the-packages">Install the packages</h4>
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggplot2")</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("palmerpenguins")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
 </div>
-</div>
-<p>You can add options to executable code like this</p>
+</section>
+<section id="load-ggplot2-and-the-dataset" class="level4">
+<h4 class="anchored" data-anchor-id="load-ggplot2-and-the-dataset">Load ggplot2 and the dataset</h4>
 <div class="cell" data-layout-align="center">
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># library(ggplot2)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># library(palmerpenguins)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
+</section>
+<section id="examine-the-data-frame-for-the-penguins-data." class="level4">
+<h4 class="anchored" data-anchor-id="examine-the-data-frame-for-the-penguins-data.">Examine the data frame for the penguins data.</h4>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data("penguins")</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># View(penguins)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
-<p>The <code>echo: false</code> option disables the printing of code (only output is displayed).</p>
+</section>
+<section id="created-the-plot-in-ggplot2" class="level3">
+<h3 class="anchored" data-anchor-id="created-the-plot-in-ggplot2">Created the plot in ggplot2</h3>
+<section id="created-a-scatterplot-of-points-displaying-the-relationship-between-the-variables-of-flipper-length-on-the-x-axis-and-body-mass-on-the-y-axis-about-the-3-penguin-species." class="level4">
+<h4 class="anchored" data-anchor-id="created-a-scatterplot-of-points-displaying-the-relationship-between-the-variables-of-flipper-length-on-the-x-axis-and-body-mass-on-the-y-axis-about-the-3-penguin-species.">Created a scatterplot of points displaying the relationship between the variables of flipper length on the x-axis and body mass on the y-axis about the 3 penguin species.</h4>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><img src="plot-penguins.png" class="img-fluid" alt="Scatterplot"> The plot shows a positive relationship between the two variables. In other words, the larger the penguin, the longer the flipper.</p>
+</section>
+<section id="created-2nd-plot" class="level4">
+<h4 class="anchored" data-anchor-id="created-2nd-plot">Created 2nd plot</h4>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +  geom_point()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+</section>
 </section>
 
 </main>

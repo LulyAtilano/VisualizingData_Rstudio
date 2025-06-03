@@ -22,21 +22,44 @@ knitr::opts_chunk$set(
 
 ## Mi 1er proyecto en Github desde RStudio
 
-Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
 ## Running Code
 
 When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
 
+Firts steps installing packages in RStudio
+
+#### Install the packages
 ```{r}
-1 + 1
+# install.packages("ggplot2")
+# install.packages("palmerpenguins")
+
 ```
 
-You can add options to executable code like this 
-
+#### Load ggplot2 and the dataset
 ```{r}
-#| echo: false
-2 * 2
+# library(ggplot2)
+# library(palmerpenguins)
 ```
 
-The `echo: false` option disables the printing of code (only output is displayed).
+#### Examine the data frame for the penguins data.
+```{r}
+# data("penguins")
+# View(penguins)
+```
+
+### Created the plot in ggplot2
+
+#### Created a scatterplot of points displaying the relationship between the variables of flipper length on the x-axis and body mass on the y-axis about the 3 penguin species.
+
+```{r}
+#ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+ 
+![Scatterplot](plot-penguins.png)
+The plot shows a positive relationship between the two variables. In other words, the larger the penguin, the longer the flipper. 
+
+#### Created 2nd plot
+
+```{r}
+# ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +  geom_point()
+```
