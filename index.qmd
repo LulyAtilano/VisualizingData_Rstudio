@@ -46,6 +46,8 @@ Firts steps installing packages in RStudio
 # data("penguins")
 # View(penguins)
 ```
+It will appear a dataset as this:
+! [Dataset](dataset.png)
 
 ### Created the plot in ggplot2
 
