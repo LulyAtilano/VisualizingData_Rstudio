@@ -151,7 +151,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># View(penguins)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>It will appear a dataset as this: ! <a href="dataset.png">Dataset</a></p>
+<p>It will appear a dataset as this: <img src="dataset.png" class="img-fluid" alt="Dataset"></p>
 </section>
 <section id="created-the-plot-in-ggplot2" class="level3">
 <h3 class="anchored" data-anchor-id="created-the-plot-in-ggplot2">Created the plot in ggplot2</h3>
@@ -170,8 +170,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +  geom_point()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
+</div>
+<p><img src="plot_species_color.png" class="img-fluid" alt="Scatterplot"> to add title to the plot we have to put the code line at the end: labs(title = “Palmer Penguins: Body Mass vs Flipper Length”), that’s going to change from the previous facet to this one.</p>
+<div class="cell" data-layout-align="center">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species) + labs(title = "Palmer Penguins: Body Mass vs Flipper Length")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="plot_species_color_title.png" class="img-fluid figure-img"></p>
+<figcaption>Scatterplot</figcaption>
+</figure>
 </div>
 </section>
 </section>

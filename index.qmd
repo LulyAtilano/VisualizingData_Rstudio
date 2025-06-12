@@ -47,7 +47,7 @@ Firts steps installing packages in RStudio
 # View(penguins)
 ```
 It will appear a dataset as this:
-! [Dataset](dataset.png)
+![Dataset](dataset.png)
 
 ### Created the plot in ggplot2
 
@@ -63,5 +63,15 @@ The plot shows a positive relationship between the two variables. In other words
 #### Created 2nd plot
 
 ```{r}
-# ggplot(data = penguins, mapping = aes(x = flipper_length_mm, y = body_mass_g)) +  geom_point()
+# ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species)
 ```
+
+![Scatterplot](plot_species_color.png)
+to add title to the plot we have to put the code line at the end: labs(title = "Palmer Penguins: Body Mass vs Flipper Length"), that's going to change from the previous facet to this one.
+
+
+```{r}
+# ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species) + labs(title = "Palmer Penguins: Body Mass vs Flipper Length")
+```
+
+![Scatterplot](plot_species_color_title.png)
