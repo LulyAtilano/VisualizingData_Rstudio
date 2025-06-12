@@ -75,3 +75,9 @@ to add title to the plot we have to put the code line at the end: labs(title = "
 ```
 
 ![Scatterplot](plot_species_color_title.png)
+#### Tips to remember:
+- R is case-sensitive, so it's important to pay attention how we are writting
+- Be sure we're using parentheses and quotation marks every time, and put them in pairs, for example: "" or (). This is because if we just write one of them, we will have an error in our code.
+- If you want to add a new layer on your plot, you have to use the plus sign (+) at the end of the line.
+- If you want to know what a specific function put the line: ?function_name, which will explain in detail what the parameters mean, and also provide examples of that function.
+- Also you could ask your question in Stackoverflow or with the R Community.
