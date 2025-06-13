@@ -1,0 +1,89 @@
+---
+title: "VisualizingData_ggplot_rstudio"
+author: "Lourdes Atilano"
+format: 
+   html:
+     toc: true
+     code-fold: show
+---
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  fig.align = "center"
+)
+```
+
+## Mi 1er proyecto en Github desde RStudio
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+Firts steps installing packages in RStudio
+
+#### Install the packages
+```{r}
+# install.packages("ggplot2")
+# install.packages("palmerpenguins")
+```
+
+#### Load ggplot2 and the dataset
+```{r}
+# library(ggplot2)
+# library(palmerpenguins)
+```
+
+#### Examine the data frame for the penguins data.
+```{r}
+# data("penguins")
+# View(penguins)
+```
+It will appear a dataset as this:
+![Dataset](dataset.png)
+
+### Created the plot in ggplot2
+
+#### Created a scatterplot of points displaying the relationship between the variables of flipper length on the x-axis and body mass on the y-axis about the 3 penguin species.
+
+```{r}
+# ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+ 
+![Scatterplot](plot-penguins.png)
+The plot shows a positive relationship between the two variables. In other words, the larger the penguin, the longer the flipper. 
+
+```{r}
+# ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color=species))
+```
+![Scatterplot](exports/plots/plot_species_color.png)
+
+#### Created 2nd plot
+
+```{r}
+# ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species)
+```
+
+![Scatterplot](plot_species_color.png)
+To add title to the plot we have to put the code line at the end: labs(title = "Palmer Penguins: Body Mass vs Flipper Length"), that's going to change from the previous facet to this one.
+
+
+```{r}
+# ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species) + labs(title = "Palmer Penguins: Body Mass vs Flipper Length")
+```
+
+![Scatterplot](plot_species_color_title.png)
+
+
+### Tips to remember:
+- R is case-sensitive, so it's important to pay attention how we are writting
+- Be sure we're using parentheses and quotation marks every time, and put them in pairs, for example: "" or (). This is because if we just write one of them, we will have an error in our code.
+- If you want to add a new layer on your plot, you have to use the plus sign (+) at the end of the line.
+- If you want to know what a specific function put the line: ?function_name, which will explain in detail what the parameters mean, and also provide examples of that function.
+- Also you could ask your question in Stackoverflow or with the R Community.
