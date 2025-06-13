@@ -32,7 +32,6 @@ Firts steps installing packages in RStudio
 ```{r}
 # install.packages("ggplot2")
 # install.packages("palmerpenguins")
-
 ```
 
 #### Load ggplot2 and the dataset
@@ -54,11 +53,16 @@ It will appear a dataset as this:
 #### Created a scatterplot of points displaying the relationship between the variables of flipper length on the x-axis and body mass on the y-axis about the 3 penguin species.
 
 ```{r}
-#ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+# ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
 ```
  
 ![Scatterplot](plot-penguins.png)
 The plot shows a positive relationship between the two variables. In other words, the larger the penguin, the longer the flipper. 
+
+```{r}
+# ggplot(data = penguins) + geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color=species))
+```
+![Scatterplot](exports/plots/plot_species_color.png)
 
 #### Created 2nd plot
 
@@ -67,7 +71,7 @@ The plot shows a positive relationship between the two variables. In other words
 ```
 
 ![Scatterplot](plot_species_color.png)
-to add title to the plot we have to put the code line at the end: labs(title = "Palmer Penguins: Body Mass vs Flipper Length"), that's going to change from the previous facet to this one.
+To add title to the plot we have to put the code line at the end: labs(title = "Palmer Penguins: Body Mass vs Flipper Length"), that's going to change from the previous facet to this one.
 
 
 ```{r}
