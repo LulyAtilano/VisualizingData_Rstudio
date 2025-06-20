@@ -1,0 +1,180 @@
+---
+title: "VisualizingData_ggplot_rstudio"
+author: "Lourdes Atilano"
+format: 
+   html:
+     toc: true
+     code-fold: show
+---
+
+```{r}
+#| label: setup
+#| include: false
+
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  fig.align = "center"
+)
+```
+
+## Mi 1er proyecto en Github desde RStudio
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+Firts steps installing packages in RStudio
+
+#### Install the packages
+
+```{r}
+ install.packages("ggplot2")
+ install.packages("palmerpenguins")
+```
+
+#### Load ggplot2 and the dataset
+
+```{r}
+ library(ggplot2)
+ library(palmerpenguins)
+```
+
+#### Examine the data frame for the penguins data.
+
+```{r}
+ data("penguins")
+ #View(penguins)
+```
+
+It will appear a dataset as this: \#![Dataset](dataset.png)
+
+#### Created the plot in ggplot2
+
+#### Created a scatterplot of points displaying the relationship between the variables of flipper length on the x-axis and body mass on the y-axis about the 3 penguin species.
+
+```{r}
+ ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+
+The plot shows a positive relationship between the two variables. In other words, the larger the penguin, the longer the flipper; In case we decided to put all the dottes in a different color we have to added the params: 'color="purple"' or any other color.
+
+```{r}
+ ggplot(data = penguins) + 
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g, color=species, shape = species))
+```
+
+This is the same graphic but using the params "color=species", to distinguish each specie and also to reinforce we use "shape=specie" that put a different form in each one (dot, triangule and square).
+
+### Changing the Geoms with the same dataset
+##### Scatter plots
+###### Line Smooth
+```{r}
+ ggplot(data = penguins) + 
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+###### Combining both grafiphs: Geom_underscore and Geom_smooth
+
+```{r}
+ ggplot(data = penguins) + 
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+
+###### Plot showing different line for each species of penguin
+
+```{r}
+ ggplot(data = penguins) + 
+  geom_smooth(mapping = aes(x = flipper_length_mm, y = body_mass_g,linetype = species,color=species))
+```
+###### Plot using Geom_jitter
+
+The geom underscore jitter function creates a scatter plot and then adds a small amount of random noise to each point in the plot. Jittering helps us deal with over-plotting, which happens when the data points in a plot overlap with each other.
+
+```{r}
+ggplot(data = penguins) + 
+  geom_jitter(mapping = aes(x = flipper_length_mm, y = body_mass_g))
+```
+
+##### Bar charts
+
+###### Barchart using the dataset: Diamonds
+```{r}
+ggplot(data=diamonds) +
+  geom_bar(mapping=aes(x=cut))
+```
+
+###### Barchart colored by cut
+
+Same barchart but adding colored, in this case we don't used the params: color instead, we put fill
+
+```{r}
+ggplot(data=diamonds) +
+  geom_bar(mapping=aes(x=cut,fill=cut))
+```
+###### Barchart colored by cut and adding the clarity
+
+```{r}
+ggplot(data=diamonds) +
+  geom_bar(mapping=aes(x=cut,fill=clarity))
+```
+
+##### Facets
+
+Facet functions let you display smaller groups or subsets of your data. A facet is a side or section of an object, like the sides of a gemstone. Facets show different sides of your data by placing each subset on its own plot. Faceting can help you discover new patterns in your data and focus on relationships between different variables.
+
+###### Facet using wrapping
+
+```{r}
+ ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species)
+```
+Tilde operator is used to define the relationship between dependent variable and independent variables in a statistical model formula. The variable on the left-hand side of tilde operator is the dependent variable and the variable(s) on the right-hand side of tilde operator is/are called the independent variable(s).
+
+In the case of this example, the independent variable at the end of the syntax line would be species, and the dependent variable in this case is facet_wrap.
+
+###### Facet adding the title in the top of the graphic
+
+To add title to the plot we have to put the code line at the end: labs(title = "Palmer Penguins: Body Mass vs Flipper Length"), that's going to change from the previous facet to this one.
+
+```{r}
+ ggplot(data = penguins, aes(x = flipper_length_mm, y=body_mass_g)) + geom_point(aes(color=species)) + facet_wrap(~species) + labs(title = "Palmer Penguins: Body Mass vs Flipper Length")
+```
+
+###### Facet with the Diamonds dataset
+
+```{r}
+ggplot(data=diamonds) +
+  geom_bar(mapping = aes(x=color,fill=cut)) +
+  facet_wrap(~cut)
+```
+
+###### Facet with two variables using facet_grit
+
+```{r}
+ggplot(data=penguins) +
+  geom_point(mapping = aes(x=flipper_length_mm,y=body_mass_g,color=species))+
+  facet_grid(sex~species)
+```
+
+This graphic is showing the three species of penguins and the thre categories of sex: Male, Female or NA.
+
+
+```{r}
+ggplot(data=penguins) +
+  geom_point(mapping = aes(x=flipper_length_mm,y=body_mass_g,color=species))+
+  facet_grid(~sex)
+```
+
+This graphic focus on sex instead of species.
+
+### Tips to remember:
+
+-   R is case-sensitive, so it's important to pay attention how we are writting
+-   Be sure we're using parentheses and quotation marks every time, and put them in pairs, for example: "" or (). This is because if we just write one of them, we will have an error in our code.
+-   If you want to add a new layer on your plot, you have to use the plus sign (+) at the end of the line.
+-   If you want to know what a specific function put the line: ?function_name, which will explain in detail what the parameters mean, and also provide examples of that function.
+-   Also you could ask your question in Stackoverflow or with the R Community.
